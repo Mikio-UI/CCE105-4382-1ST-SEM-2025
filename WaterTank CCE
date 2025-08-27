@@ -1,0 +1,124 @@
+import javax.swing.JOptionPane;
+
+class HomeTank {
+    int capacity = 200;
+    int currentLevel = 0;
+
+    String fillTank(int liters) {
+        if (currentLevel + liters > capacity) {
+            currentLevel = capacity;
+            return "Tank overflowed! Filled to maximum capacity (" + capacity + " liters).";
+        } else {
+            currentLevel += liters;
+            return liters + " liters added. Current level: " + currentLevel + "/" + capacity;
+        }
+    }
+
+    String useWater(int liters) {
+        if (currentLevel - liters < 0) {
+            currentLevel = 0;
+            return "Not enough water! Tank is now empty.";
+        } else {
+            currentLevel -= liters;
+            return liters + " liters used. Current level: " + currentLevel + "/" + capacity;
+        }
+    }
+
+    String checkStatus() {
+        if (currentLevel == 0) {
+            return "Tank is Empty!";
+        } else if (currentLevel == capacity) {
+            return "Tank is Full!";
+        } else {
+            return "Tank is In Use.";
+        }
+    }
+}
+
+class BuildingTank {
+    int capacity = 1000;
+    int currentLevel = 0;
+
+    String fillTank(int liters) {
+        if (currentLevel + liters > capacity) {
+            currentLevel = capacity;
+            return "Tank overflowed! Filled to maximum capacity (" + capacity + " liters).";
+        } else {
+            currentLevel += liters;
+            return liters + " liters added. Current level: " + currentLevel + "/" + capacity;
+        }
+    }
+
+    String useWater(int liters) {
+        if (currentLevel - liters < 0) {
+            currentLevel = 0;
+            return "Not enough water! Tank is now empty.";
+        } else {
+            currentLevel -= liters;
+            return liters + " liters used. Current level: " + currentLevel + "/" + capacity;
+        }
+    }
+
+    String checkStatus() {
+        if (currentLevel == 0) {
+            return "Tank is Empty!";
+        } else if (currentLevel == capacity) {
+            return "Tank is Full!";
+        } else {
+            return "Tank is In Use.";
+        }
+    }
+}
+
+public class water {
+    public static void main(String[] args) {
+        String input = JOptionPane.showInputDialog("Enter type of tank:\n(1) HomeTank\n(2) BuildingTank");
+        int choice = Integer.parseInt(input);
+
+        HomeTank homeTank = null;
+        BuildingTank buildingTank = null;
+        if (choice == 1) {
+            homeTank = new HomeTank();
+        } else {
+            buildingTank = new BuildingTank();
+        }
+
+        while (true) {
+            String actionInput = JOptionPane.showInputDialog(
+                    "Choose action:\n1. Fill Tank\n2. Use Water\n3. Check Status\n4. Exit"
+            );
+            int action = Integer.parseInt(actionInput);
+
+            String result = "";
+
+            if (action == 1) {
+                String litersInput = JOptionPane.showInputDialog("Enter liters to fill:");
+                int liters = Integer.parseInt(litersInput);
+                if (choice == 1) result = homeTank.fillTank(liters);
+                else result = buildingTank.fillTank(liters);
+            } else if (action == 2) {
+                String litersInput = JOptionPane.showInputDialog("Enter liters to use:");
+                int liters = Integer.parseInt(litersInput);
+                if (choice == 1) result = homeTank.useWater(liters);
+                else result = buildingTank.useWater(liters);
+            } else if (action == 3) {
+                if (choice == 1) result = homeTank.checkStatus();
+                else result = buildingTank.checkStatus();
+            } else if (action == 4) {
+                JOptionPane.showMessageDialog(null, "Exiting program...");
+                break;
+            }
+
+            JOptionPane.showMessageDialog(null, result);
+
+            // Stop program if empty or full
+            if (choice == 1 && (homeTank.currentLevel == 0 || homeTank.currentLevel == homeTank.capacity)) {
+                JOptionPane.showMessageDialog(null, homeTank.checkStatus() + "\nProgram ended.");
+                break;
+            } else if (choice == 2 && (buildingTank.currentLevel == 0 || buildingTank.currentLevel == buildingTank.capacity)) {
+                JOptionPane.showMessageDialog(null, buildingTank.checkStatus() + "\nProgram ended.");
+                break;
+            }
+        }
+    }
+}
