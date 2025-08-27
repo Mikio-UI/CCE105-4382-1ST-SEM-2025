@@ -25,6 +25,7 @@ Subclasses: HomeTank and BuildingTank are the two subclasses of class water. Bot
 
 import javax.swing.JOptionPane;
 
+
 public class water {
     int capacity;
     int currentLevel;
@@ -33,24 +34,29 @@ public class water {
         this.capacity = capacity;
         this.currentLevel = 0;
     }
+
+    // Adds water to the tank
     public void fillTank(int liters) {
         currentLevel += liters;
         if (currentLevel > capacity) currentLevel = capacity;
         JOptionPane.showMessageDialog(null, "Level: " + currentLevel + "/" + capacity);
     }
 
+    // Uses water from the tank
     public void useWater(int liters) {
         currentLevel -= liters;
         if (currentLevel < 0) currentLevel = 0;
         JOptionPane.showMessageDialog(null, "Level: " + currentLevel + "/" + capacity);
     }
 
+    // Checks the tank status
     public void checkStatus() {
         if (currentLevel == 0) JOptionPane.showMessageDialog(null, "Empty");
         else if (currentLevel == capacity) JOptionPane.showMessageDialog(null, "Full");
         else JOptionPane.showMessageDialog(null, "In Use");
     }
 
+    // Main program
     public static void main(String[] args) {
         String choice = JOptionPane.showInputDialog("1. HomeTank (200)\n2. BuildingTank (1000)");
         int cap = choice.equals("1") ? 200 : 1000;
@@ -68,10 +74,15 @@ public class water {
                 tank.useWater(liters);
             } else if (action.equals("3")) {
                 tank.checkStatus();
-            } else if (action.equals("4")) break;
+            } else if (action.equals("4")) {
+                JOptionPane.showMessageDialog(null, "Program Ended.");
+                break;
+            }
 
+            // If tank is full or empty, show status and end program
             if (tank.currentLevel == 0 || tank.currentLevel == tank.capacity) {
                 tank.checkStatus();
+                JOptionPane.showMessageDialog(null, "Program Ended.");
                 break;
             }
         }
@@ -84,7 +95,8 @@ public class water {
 <img width="1024" height="523" alt="image" src="https://github.com/user-attachments/assets/6decff24-5eb8-487a-b5f1-9b36e56a0fe2" />
 <img width="1041" height="573" alt="image" src="https://github.com/user-attachments/assets/55ed8d73-d806-4902-94bf-f4c2f58d57cd" />
 <img width="1053" height="550" alt="image" src="https://github.com/user-attachments/assets/3bf01c6a-9388-42a3-9ff4-01b2dbfdd217" />
-<img width="1043" height="531" alt="image" src="https://github.com/user-attachments/assets/3c43ed50-2eea-42a3-81bf-79735db21fb5" />
+<img width="1009" height="538" alt="image" src="https://github.com/user-attachments/assets/1d8343d5-edf5-4131-87b6-985a3ebc683b" />
+
 
 
 
