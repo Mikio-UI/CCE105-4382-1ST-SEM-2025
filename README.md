@@ -1,6 +1,6 @@
 This program simulates a water tank management system using JOptionPane for input and output. The user can choose between two types of tanks:
 
-HomeTank → a small tank (up to 100 liters).
+HomeTank → a small tank (up to 200 liters).
 
 BuildingTank → a large tank (up to 1000 liters).
 
