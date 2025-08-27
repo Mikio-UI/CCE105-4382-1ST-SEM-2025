@@ -83,7 +83,6 @@ public class water {
 <img width="1020" height="546" alt="image" src="https://github.com/user-attachments/assets/937d7c4c-286e-4004-85b2-04e1c4bbe506" />
 <img width="1024" height="523" alt="image" src="https://github.com/user-attachments/assets/6decff24-5eb8-487a-b5f1-9b36e56a0fe2" />
 <img width="1041" height="573" alt="image" src="https://github.com/user-attachments/assets/55ed8d73-d806-4902-94bf-f4c2f58d57cd" />
-<img width="1041" height="573" alt="image" src="https://github.com/user-attachments/assets/82f7b421-f2fe-4ac8-843b-238c1a359729" />
 <img width="1053" height="550" alt="image" src="https://github.com/user-attachments/assets/3bf01c6a-9388-42a3-9ff4-01b2dbfdd217" />
 <img width="1043" height="531" alt="image" src="https://github.com/user-attachments/assets/3c43ed50-2eea-42a3-81bf-79735db21fb5" />
 
