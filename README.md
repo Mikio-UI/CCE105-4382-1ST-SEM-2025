@@ -33,7 +33,6 @@ public class water {
         this.capacity = capacity;
         this.currentLevel = 0;
     }
-// Abstract methods
     public void fillTank(int liters) {
         currentLevel += liters;
         if (currentLevel > capacity) currentLevel = capacity;
